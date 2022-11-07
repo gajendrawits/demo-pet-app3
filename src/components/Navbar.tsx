@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   ContentCombine,
   Logo,
@@ -19,7 +20,9 @@ const Navbar = () => {
           />
           <SubNavbarOptionWrapper>
             <ContentCombine>
-              <Span>ADOPT</Span>
+              <Link to={"/store"}>
+                <Span>ADOPT</Span>
+              </Link>
               <Span>EVENTS</Span>
               <Span>OUR TEAM</Span>
               <Span>CONTACT</Span>

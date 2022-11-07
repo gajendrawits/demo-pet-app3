@@ -1,14 +1,9 @@
-import HeroSection from "components/HeroSection";
-import Navbar from "components/Navbar";
-import Pets from "components/Pets";
+import Routing from "routes/routes";
 
 function App() {
   return (
     <div className="App">
-      {/* <Routing /> */}
-      <Navbar />
-      <HeroSection />
-      <Pets />
+      <Routing />
     </div>
   );
 }

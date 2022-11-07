@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavbarMainWrapper = styled.div`
-  max-width: 1920px;
+  max-width: 100vw;
   margin: 0 auto;
 `;
 
@@ -23,6 +23,7 @@ export const MainNavbarOptionWrapper = styled.div`
 
 export const SubNavbarOptionWrapper = styled.div`
   width: 1150px;
+  /* border: 2px solid blue; */
 `;
 
 export const ContentCombine = styled.div`
