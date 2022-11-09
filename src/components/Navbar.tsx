@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ContentCombine,
   Logo,
@@ -10,11 +10,18 @@ import {
 } from "styles/components/navbar";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const navigateToHome = () => {
+    navigate("/home");
+  };
+
   return (
     <NavbarMainWrapper>
       <SubNavbarWrapper>
         <MainNavbarOptionWrapper>
           <Logo
+            onClick={() => navigateToHome()}
             src="https://www.petfinder.com/themes/custom/consumer_react/logo.svg"
             alt="pet-finder"
           />

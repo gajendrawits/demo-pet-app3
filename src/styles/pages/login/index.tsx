@@ -13,12 +13,13 @@ export const SubLoginWrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const LoginHeading = styled.h1`
+export const LoginHeading = styled.div`
   font-family: initial;
+  font-size: 2rem;
 `;
 
 export const SiteNameParagraph = styled.h1`
-  font-size: 1.389vw;
+  font-size: 2.389vw;
   color: #ed2553;
 `;
 

@@ -1,3 +1,4 @@
+import Footer from "components/Footer";
 import HeroSection from "components/HeroSection";
 import Navbar from "components/Navbar";
 import Pets from "components/Pets";
@@ -8,6 +9,7 @@ const Home = () => {
       <Navbar />
       <HeroSection />
       <Pets />
+      <Footer />
     </div>
   );
 };
