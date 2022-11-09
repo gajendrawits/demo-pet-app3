@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 export const PetMainWrapper = styled.div`
-  border: 1px solid red;
   display: flex;
-  border: 1px solid red;
-  /* width: 1440px; */
   flex-direction: row;
   flex-wrap: wrap;
   gap: 50px;
