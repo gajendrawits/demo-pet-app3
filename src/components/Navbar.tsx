@@ -30,9 +30,12 @@ const Navbar = () => {
               <Link to={"/store"}>
                 <Span>ADOPT</Span>
               </Link>
-              <Span>EVENTS</Span>
-              <Span>OUR TEAM</Span>
-              <Span>CONTACT</Span>
+              <Link to={"/home/fish"}>
+                <Span>FISH</Span>
+              </Link>
+              <Link to={"/home/doggie"}>
+                <Span>DOG</Span>
+              </Link>
             </ContentCombine>
           </SubNavbarOptionWrapper>
         </MainNavbarOptionWrapper>

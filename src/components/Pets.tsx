@@ -13,6 +13,7 @@ import {
   PetName,
   PetSubWrapper,
 } from "styles/components/pets";
+import Loader from "./Loader";
 
 const Pets = () => {
   interface Pet {
@@ -25,6 +26,9 @@ const Pets = () => {
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
   const newData = data.slice(0, 7);
 
   const url =
@@ -33,6 +37,7 @@ const Pets = () => {
   useEffect(() => {
     axios.get(url).then((response) => {
       setData(response.data);
+      setLoading(false);
     });
   }, [url]);
 
@@ -61,10 +66,11 @@ const Pets = () => {
           </PetSubWrapper>
         );
       })}
+      {loading ? <Loader /> : null}
       <MorePetWrapper>
         <MorePetImage src="https://static.vecteezy.com/system/resources/previews/005/484/042/original/dog-logo-illustration-free-vector.jpg" />
         <AvailablePetHeading>
-          89 more pets available on Petfinder
+          {data.length} more pets available on Petfinder
         </AvailablePetHeading>
         <MeetThemButton onClick={() => goToStore()}>Meet Them</MeetThemButton>
       </MorePetWrapper>
