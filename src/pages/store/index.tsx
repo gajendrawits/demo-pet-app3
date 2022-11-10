@@ -18,6 +18,8 @@ import Navbar from "../../components/Navbar";
 import dog from "../../assets/images/dog.png";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import Footer from "components/Footer";
+import Loader from "components/Loader";
 
 const Store = () => {
   interface Pet {
@@ -27,18 +29,19 @@ const Store = () => {
     photoUrls: string;
   }
 
+  const [data, setData] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
   const url =
     "https://petstore.swagger.io/v2/pet/findByStatus?status=available";
 
   useEffect(() => {
     axios.get(url).then((response) => {
       setData(response.data);
+      setLoading(false);
     });
   }, [url]);
-
-  const [data, setData] = useState([]);
-
-  const newData = data.slice(0, 400);
 
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -46,23 +49,34 @@ const Store = () => {
 
   const pageVisited = pageNumber * userPerPage;
 
-  const pageCount = Math.ceil(newData.length / userPerPage);
+  const pageCount = Math.ceil(data.length / userPerPage);
 
-  const displayUsers = newData
+  const displayUsers = data
     .slice(pageVisited, pageVisited + userPerPage)
     .map((value: Pet, index: number) => {
       return (
-        <PaginationSubWrapper key={index}>
-          <PetImage src={value.photoUrls} alt="" />
-          <Name>Hi! My name is:</Name>
-          <PetName>{value.name}</PetName>
-          <PetBreed>{value.breed}</PetBreed>
-        </PaginationSubWrapper>
+        <div key={index}>
+          <PaginationSubWrapper key={index}>
+            <PetImage src={value.photoUrls} alt="" />
+            <Name>Hi! My name is:</Name>
+            <PetName>{value.name}</PetName>
+            <PetBreed>{value.breed}</PetBreed>
+          </PaginationSubWrapper>
+        </div>
       );
     });
 
   const changePage = ({ selected }: any) => {
     setPageNumber(selected);
+  };
+
+  const knowAvailability = (e: any) => {
+    let status = e.target.value;
+    axios
+      .get(`https://petstore.swagger.io/v2/pet/findByStatus?status=${status}`)
+      .then((response) => {
+        setData(response.data);
+      });
   };
 
   return (
@@ -75,12 +89,16 @@ const Store = () => {
           </LeftStoreWrapper>
           <RightStoreWrapper>
             Search for the availability
-            <AvailabilitySelectBox>
-              <option>Sold</option>
+            <AvailabilitySelectBox onChange={knowAvailability}>
+              <option>Select</option>
+              <option>available</option>
+              <option>pending</option>
+              <option>sold</option>
             </AvailabilitySelectBox>
           </RightStoreWrapper>
         </StoreSubWrapper>
       </StoreMainWrapper>
+      {loading ? <Loader /> : null}
       <PaginationMainWrapper>{displayUsers} </PaginationMainWrapper>
 
       <ReactPaginate
@@ -93,6 +111,7 @@ const Store = () => {
         nextLinkClassName={"nextButtons"}
         activeClassName={"activeButtons"}
       />
+      <Footer />
     </>
   );
 };

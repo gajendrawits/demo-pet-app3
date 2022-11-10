@@ -30,6 +30,7 @@ export const RightStoreWrapper = styled.div`
 export const AvailabilitySelectBox = styled.select`
   display: flex;
   border-radius: 10px;
+  text-transform: capitalize;
 `;
 export const PaginationMainWrapper = styled.div`
   display: flex;

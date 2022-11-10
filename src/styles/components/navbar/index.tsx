@@ -1,13 +1,10 @@
 import styled from "styled-components";
 
-export const NavbarMainWrapper = styled.div`
-  max-width: 100vw;
-  margin: 0 auto;
-`;
+export const NavbarMainWrapper = styled.div``;
 
 export const SubNavbarWrapper = styled.div`
   border-top: 2px solid #5f249f;
-  border-bottom: 2px solid #5f249f; ;
+  border-bottom: 2px solid #5f249f;
 `;
 
 export const Logo = styled.img`
@@ -23,7 +20,6 @@ export const MainNavbarOptionWrapper = styled.div`
 
 export const SubNavbarOptionWrapper = styled.div`
   width: 1150px;
-  /* border: 2px solid blue; */
 `;
 
 export const ContentCombine = styled.div`

@@ -35,7 +35,8 @@ export const FooterHeading = styled.h5`
 
 export const FooterDetailsWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  gap: 50px;
+  justify-content: flex-end;
   width: 650px;
 `;
 
@@ -57,14 +58,26 @@ export const CrossLine = styled.div`
   width: 80vw;
 `;
 
-export const EstablishmentWrapper = styled.div``;
+export const EstablishmentWrapper = styled.div`
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 export const Heading = styled.h5`
   color: white;
+  font-family: "Comfortaa", cursive;
 `;
 
 export const SocialMediaWrapper = styled.div`
-  width: 20px;
+  display: flex;
+  gap: 25px;
+  svg {
+    width: 20px;
+    height: 30px;
+  }
 `;
 
 export const Logo = styled.div``;
