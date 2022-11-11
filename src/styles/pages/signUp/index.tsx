@@ -22,6 +22,10 @@ export const SubSignUpWrapper = styled.div`
 
 export const Form = styled.form``;
 
+export const ErrorMessage = styled.p`
+  color: red;
+`;
+
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -81,6 +85,7 @@ export const SignUpButton = styled.button`
 export const CancelButtonWrapper = styled.div`
   display: flex;
   width: 38.542vw;
+
   justify-content: space-between;
   margin-left: 3.988vw;
 `;
