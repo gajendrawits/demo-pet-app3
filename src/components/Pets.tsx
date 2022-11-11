@@ -66,8 +66,8 @@ const Pets = () => {
           </PetSubWrapper>
         );
       })}
-      {loading ? <Loader /> : null}
       <MorePetWrapper>
+        {loading ? <Loader /> : null}
         <MorePetImage src="https://static.vecteezy.com/system/resources/previews/005/484/042/original/dog-logo-illustration-free-vector.jpg" />
         <AvailablePetHeading>
           {data.length} more pets available on Petfinder

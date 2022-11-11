@@ -36,6 +36,7 @@ export const PaginationMainWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
   gap: 50px;
   padding: 30px;
 `;
@@ -43,11 +44,11 @@ export const PaginationMainWrapper = styled.div`
 export const PaginationSubWrapper = styled.div`
   width: 406px;
   height: 570px;
-  :hover {
+  /* :hover {
     overflow: hidden;
     transform: scale(1.1);
     transition: transform 0.5s ease;
-  }
+  } */
 `;
 
 export const Name = styled.div`
@@ -70,6 +71,7 @@ export const PetName = styled.div`
 
 export const PetBreed = styled.div`
   padding: 20px;
+  cursor: pointer;
   font-weight: 400;
   font-size: 18px;
   font-size: 1.125rem;

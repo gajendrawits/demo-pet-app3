@@ -20,6 +20,8 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import Footer from "components/Footer";
 import Loader from "components/Loader";
+import addPet from "../../redux/petAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const Store = () => {
   interface Pet {
@@ -30,6 +32,9 @@ const Store = () => {
   }
 
   const [data, setData] = useState([]);
+
+  const selector = useSelector((state: any) => state.cartPet.totalPets);
+  const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(true);
 
@@ -60,7 +65,7 @@ const Store = () => {
             <PetImage src={value.photoUrls} alt="" />
             <Name>Hi! My name is:</Name>
             <PetName>{value.name}</PetName>
-            <PetBreed>{value.breed}</PetBreed>
+            <PetBreed onClick={() => dispatch(addPet(value))}>Buy Pet</PetBreed>
           </PaginationSubWrapper>
         </div>
       );
@@ -82,6 +87,7 @@ const Store = () => {
   return (
     <>
       <Navbar />
+      Num Of Pets:- {selector.length}
       <StoreMainWrapper>
         <StoreSubWrapper>
           <LeftStoreWrapper>
@@ -98,9 +104,10 @@ const Store = () => {
           </RightStoreWrapper>
         </StoreSubWrapper>
       </StoreMainWrapper>
-      {loading ? <Loader /> : null}
-      <PaginationMainWrapper>{displayUsers} </PaginationMainWrapper>
-
+      <PaginationMainWrapper>
+        {loading ? <Loader /> : null}
+        {displayUsers}
+      </PaginationMainWrapper>
       <ReactPaginate
         previousLabel={"Previous"}
         nextLabel={"Next"}

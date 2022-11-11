@@ -48,8 +48,11 @@ export const PetImage = styled.img`
   width: 406px;
   height: 406px;
 `;
+
 export const MorePetWrapper = styled.div`
   display: flex;
+  margin: 0 auto;
+
   flex-direction: column;
   align-items: center;
   justify-content: space-between;

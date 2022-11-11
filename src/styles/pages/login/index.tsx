@@ -7,7 +7,7 @@ export const LoginMainWrappear = styled.div`
 `;
 
 export const SubLoginWrapper = styled.div`
-  width: 47.917vw;
+  width: 24.917vw;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -26,7 +26,6 @@ export const SiteNameParagraph = styled.h1`
 export const LoginCredentialsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.736vw;
 `;
 
 export const InputWrapper = styled.div``;
@@ -45,5 +44,6 @@ export const Span = styled.span``;
 
 export const SignUpModalWrapper = styled.div`
   position: absolute;
-  right: 19.55vw;
+  top: 8vw;
+  right: 24.55vw;
 `;
