@@ -1,16 +1,21 @@
 import { Link, useNavigate } from "react-router-dom";
 import {
+  CartWrapper,
   ContentCombine,
   Logo,
   MainNavbarOptionWrapper,
   NavbarMainWrapper,
+  NumberWrapper,
   Span,
   SubNavbarOptionWrapper,
   SubNavbarWrapper,
 } from "styles/components/navbar";
+import { SlHandbag } from "react-icons/sl";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const selector = useSelector((state: any) => state.cartPet.totalPets);
 
   const navigateToHome = () => {
     navigate("/home");
@@ -36,6 +41,12 @@ const Navbar = () => {
               <Link to={"/home/doggie"}>
                 <Span>DOG</Span>
               </Link>
+              <Link to={"/cart"}>
+                <CartWrapper>
+                  <SlHandbag />
+                  <NumberWrapper>{selector.length}</NumberWrapper>
+                </CartWrapper>
+              </Link>
             </ContentCombine>
           </SubNavbarOptionWrapper>
         </MainNavbarOptionWrapper>
@@ -43,5 +54,4 @@ const Navbar = () => {
     </NavbarMainWrapper>
   );
 };
-
 export default Navbar;

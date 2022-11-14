@@ -9,7 +9,7 @@ const cartReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case ADD_PET:
       const find = state.totalPets?.find((item: any) =>
-        item.id === action.payload.id ? true : false
+        item.id === action.payload ? true : false
       );
       return {
         ...state,

@@ -3,6 +3,7 @@ import Home from "pages/home";
 import Login from "pages/login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Category from "components/Category";
+import Cart from "pages/cart";
 
 const Routing = () => {
   return (
@@ -12,6 +13,7 @@ const Routing = () => {
         <Route path="/store" element={<Store />} />
         <Route path="/home" element={<Home />} />
         <Route path="/home/:category" element={<Category />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );

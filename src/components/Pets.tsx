@@ -7,7 +7,6 @@ import {
   MorePetImage,
   MorePetWrapper,
   Name,
-  PetBreed,
   PetImage,
   PetMainWrapper,
   PetName,
@@ -62,7 +61,6 @@ const Pets = () => {
             <PetImage src={value.photoUrls} alt="" />
             <Name>Hi! My name is:</Name>
             <PetName>{value.name}</PetName>
-            <PetBreed>{value.breed}</PetBreed>
           </PetSubWrapper>
         );
       })}
