@@ -1,6 +1,6 @@
 import "../App.css";
 const Loader = () => {
-  return <span className="loader"></span>;
+  return <div className="loader"></div>;
 };
 
 export default Loader;

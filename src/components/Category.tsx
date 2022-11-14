@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
-
   Name,
   PetImage,
   PetMainWrapper,
@@ -10,6 +9,7 @@ import {
   PetSubWrapper,
 } from "styles/components/pets";
 import Footer from "./Footer";
+import Loader from "./Loader";
 import Navbar from "./Navbar";
 
 const Category = () => {
@@ -37,9 +37,16 @@ const Category = () => {
   }, [url]);
 
   return (
-    <div>
+    <>
       <Navbar />
-      {loading ? <h1>Loading...</h1> : null}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {loading ? <Loader /> : null}
+      </div>
       <PetMainWrapper>
         {filteredData.map((value: Pet, index: number) => {
           return (
@@ -52,7 +59,7 @@ const Category = () => {
         })}
       </PetMainWrapper>
       <Footer />
-    </div>
+    </>
   );
 };
 

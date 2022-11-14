@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const PetMainWrapper = styled.div`
   display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 50px;
@@ -34,14 +35,6 @@ export const PetName = styled.div`
   font-size: 2.5rem;
   text-transform: uppercase;
   font-weight: 900;
-`;
-
-export const PetBreed = styled.div`
-  padding: 20px;
-  font-weight: 400;
-  font-size: 18px;
-  font-size: 1.125rem;
-  color: #333333;
 `;
 
 export const PetImage = styled.img`
