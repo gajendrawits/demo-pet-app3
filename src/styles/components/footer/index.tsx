@@ -5,8 +5,9 @@ export const FooterMainWrapper = styled.div`
 `;
 
 export const FooterSubWrapper = styled.div`
+  width: 100%;
   width: 80vw;
-  padding: 40px 0;
+  padding: 2.083vw 0;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -26,28 +27,33 @@ export const RightFooterWrapper = styled.div`
 
 export const FooterHeading = styled.h5`
   color: white;
-  margin-top: 30px;
+  margin-top: 1.563vw;
   font-weight: 400;
-  width: 517px;
+  width: 100%;
+  max-width: 26.927vw;
   text-align: initial;
   font-family: "Comfortaa", cursive;
 `;
 
 export const FooterDetailsWrapper = styled.div`
   display: flex;
-  gap: 50px;
+  gap: 2.604vw;
   justify-content: flex-end;
-  width: 650px;
+  width: 100%;
+  max-width: 33.854vw;
+  flex-wrap: wrap;
 `;
 
 export const Span = styled.span`
   color: white;
   font-family: "Comfortaa";
   font-weight: 800;
+  font-size: 1.042rem;
   cursor: pointer;
 `;
 export const CharityLogo = styled.img`
-  width: 400px;
+  width: 100%;
+  max-width: 20.833vw;
   display: flex;
 `;
 
@@ -55,11 +61,13 @@ export const CrossLine = styled.div`
   height: 0.1vw;
   background-color: white;
   margin: 0 auto;
-  width: 80vw;
+  width: 100%;
+  max-width: 80vw;
 `;
 
 export const EstablishmentWrapper = styled.div`
-  width: 80vw;
+  width: 100%;
+  max-width: 80vw;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -73,10 +81,11 @@ export const Heading = styled.h5`
 
 export const SocialMediaWrapper = styled.div`
   display: flex;
-  gap: 25px;
+  gap: 1.302vw;
   svg {
-    width: 20px;
-    height: 30px;
+    width: 100%;
+    max-width: 1.042vw;
+    height: 1.563vw;
   }
 `;
 

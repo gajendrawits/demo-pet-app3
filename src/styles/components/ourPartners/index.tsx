@@ -23,6 +23,6 @@ export const ClientHeading = styled.h3`
   margin-bottom: 2rem;
   text-align: center;
   color: #004c81;
-  font-size: 2.5rem;
+  font-size: 2.5vw;
   font-family: "Comfortaa";
 `;

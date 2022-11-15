@@ -54,7 +54,8 @@ export const Heading = styled.h1`
 
 export const CombineWrapper = styled.div`
   display: flex;
-  width: 46.833vw;
+  width: 100%;
+  max-width: 46.833vw;
   justify-content: space-evenly;
 `;
 export const Label = styled.label`

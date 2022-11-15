@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 export const PetMainWrapper = styled.div`
   display: flex;
+  margin-top: 5.208vw;
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 50px;
-  padding: 30px;
+  gap: 2.604vw;
+  padding: 1.563vw;
 `;
 
 export const PetSubWrapper = styled.div`
-  width: 406px;
-  height: 570px;
+  width: 100%;
+  max-width: 21.146vw;
+  height: 29.688vw;
   :hover {
     overflow: hidden;
     transform: scale(1.1);
@@ -20,38 +22,38 @@ export const PetSubWrapper = styled.div`
 `;
 
 export const Name = styled.div`
-  padding: 20px;
+  padding: 1.042vw;
   font-weight: 400;
-  font-size: 18px;
-  font-size: 1.125rem;
-
+  font-size: 0.938vw;
+  font-size: 1.125vw;
   color: #206ef6;
   font-weight: 700;
 `;
 
 export const PetName = styled.div`
-  padding: 20px;
+  padding: 1.042vw;
   color: #dd2834;
-  font-size: 2.5rem;
+  font-size: 2.5vw;
   text-transform: uppercase;
   font-weight: 900;
 `;
 
 export const PetImage = styled.img`
-  width: 406px;
-  height: 406px;
+  width: 100%;
+  max-width: 21.146vw;
+  height: 21.146vw;
 `;
 
 export const MorePetWrapper = styled.div`
   display: flex;
   margin: 0 auto;
-
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 406px;
-  padding: 16px;
-  border-radius: 8px;
+  max-width: 21.146vw;
+  padding: 0.833vw;
+  border-radius: 0.417vw;
   :hover {
     overflow: hidden;
     transform: scale(1.1);
@@ -59,15 +61,16 @@ export const MorePetWrapper = styled.div`
   }
 `;
 export const MorePetImage = styled.img`
-  width: 306px;
-  height: 200px;
+  max-width: 15.938vw;
+  width: 100%;
+  height: 10.417vw;
 `;
 export const MeetThemButton = styled.button`
   width: 100%;
-  height: 50px;
+  height: 2.604vw;
   font-weight: bold;
   border: none;
-  font-size: 20px;
+  font-size: 1.042vw;
   color: #206ef6;
   text-transform: uppercase;
   font-family: "Comfortaa", cursive;
@@ -79,6 +82,9 @@ export const MeetThemButton = styled.button`
   }
 `;
 export const AvailablePetHeading = styled.div`
-  width: 190px;
+  width: 100%;
+  max-width: 9.896vw;
+  font-size: 1.125vw;
+
   font-family: "Comfortaa", cursive;
 `;
