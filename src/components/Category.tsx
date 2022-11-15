@@ -45,19 +45,19 @@ const Category = () => {
           justifyContent: "center",
         }}
       >
-        {loading ? <Loader /> : null}
+        <PetMainWrapper>
+          {loading ? <Loader /> : null}
+          {filteredData.map((value: Pet, index: number) => {
+            return (
+              <PetSubWrapper key={index}>
+                <PetImage src={value.photoUrls} alt="" />
+                <Name>Hi! My name is:</Name>
+                <PetName>{value.name}</PetName>
+              </PetSubWrapper>
+            );
+          })}
+        </PetMainWrapper>
       </div>
-      <PetMainWrapper>
-        {filteredData.map((value: Pet, index: number) => {
-          return (
-            <PetSubWrapper key={index}>
-              <PetImage src={value.photoUrls} alt="" />
-              <Name>Hi! My name is:</Name>
-              <PetName>{value.name}</PetName>
-            </PetSubWrapper>
-          );
-        })}
-      </PetMainWrapper>
       <Footer />
     </>
   );

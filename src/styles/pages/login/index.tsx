@@ -7,7 +7,8 @@ export const LoginMainWrappear = styled.div`
 `;
 
 export const SubLoginWrapper = styled.div`
-  width: 24.917vw;
+  width: 100%;
+  max-width: 24.917vw;
   display: flex;
   flex-direction: column;
   margin: 0 auto;

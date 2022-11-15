@@ -20,7 +20,7 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import Footer from "components/Footer";
 import Loader from "components/Loader";
-import addPet from "../../redux/petAction";
+import { addPet } from "../../redux/petAction";
 import { useDispatch } from "react-redux";
 
 const Store = () => {

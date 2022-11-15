@@ -7,27 +7,27 @@ export const MainHeroWrapper = styled.div`
 
 export const SubHeroWrapper = styled.div`
   margin-top: 2px;
-  height: 690px;
+  height: 35.938vw;
 `;
 
 export const HeroContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 600px;
-  gap: 35px;
+  height: 31.25vw;
+  gap: 1.823vw;
   justify-content: center;
   align-items: center;
   color: white;
 `;
 
 export const HeroHeading = styled.span`
-  font-size: 60px;
-  /* font-weight: 400; */
-  font-family: "Pacifico", cursive;
+  font-size: 1.823vw;
+  font-family: "Pacifico";
 `;
 export const HeroParagraph = styled.span`
-  width: 900px;
-  font-size: 25px;
+  width: 100%;
+  max-width: 46.875vw;
+  font-size: 1.302vw;
   text-align: center;
   font-family: "Comfortaa", cursive;
 `;
