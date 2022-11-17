@@ -11,10 +11,12 @@ import {
   SubNavbarWrapper,
 } from "styles/components/navbar";
 import { SlHandbag } from "react-icons/sl";
+
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const navigate = useNavigate();
+
   const selector = useSelector((state: any) => state.cartPet.totalPets);
 
   const navigateToHome = () => {
@@ -32,13 +34,13 @@ const Navbar = () => {
           />
           <SubNavbarOptionWrapper>
             <ContentCombine>
-              <Link to={"/store"}>
+              <Link style={{ textDecoration: "none" }} to={"/store"}>
                 <Span>ADOPT</Span>
               </Link>
-              <Link to={"/home/fish"}>
+              <Link style={{ textDecoration: "none" }} to={"/home/fish"}>
                 <Span>FISH</Span>
               </Link>
-              <Link to={"/home/doggie"}>
+              <Link style={{ textDecoration: "none" }} to={"/home/doggie"}>
                 <Span>DOG</Span>
               </Link>
               <Link to={"/cart"}>

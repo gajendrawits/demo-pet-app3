@@ -34,6 +34,7 @@ export const ContentCombine = styled.div`
   gap: 4.167vw;
   height: 1.042vw;
   justify-content: flex-end;
+  align-items: center;
 `;
 
 export const Span = styled.span`
@@ -55,6 +56,7 @@ export const CartWrapper = styled.span`
   font-weight: bold;
   :hover {
     cursor: pointer;
-    border-bottom: 1.156rem solid #00205b;
+    color: red;
+    border-bottom: 0.156rem solid red;
   }
 `;

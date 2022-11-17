@@ -22,6 +22,16 @@ export const StoreLogo = styled.img`
 
 export const LeftStoreWrapper = styled.div``;
 
+export const AddIconWrapper = styled.div`
+  color: white;
+  cursor: pointer;
+  :hover {
+    color: chartreuse;
+    overflow: hidden;
+    transform: scale(1.5);
+    transition: transform 0.5s ease;
+  }
+`;
 export const RightStoreWrapper = styled.div`
   display: flex;
   gap: 0.781vw;
@@ -41,6 +51,8 @@ export const PaginationMainWrapper = styled.div`
   justify-content: space-around;
   gap: 2.604vw;
   padding: 1.563vw;
+  height: 111vw;
+  /* align-items: center; */
 `;
 
 export const PaginationSubWrapper = styled.div`

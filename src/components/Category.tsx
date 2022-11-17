@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import api from "services/instance";
 import {
   Name,
   PetImage,
@@ -26,15 +26,12 @@ const Category = () => {
 
   const filteredData = data.filter((value: Pet) => value.name === category);
 
-  const url =
-    "https://petstore.swagger.io/v2/pet/findByStatus?status=available";
-
   useEffect(() => {
-    axios.get(url).then((response) => {
+    api.get("/pet/findByStatus?status=available").then((response) => {
       setData(response.data);
       setLoading(false);
     });
-  }, [url]);
+  }, []);
 
   return (
     <>
