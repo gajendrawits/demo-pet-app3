@@ -8,7 +8,7 @@ import store from "redux/store";
 import axios from "axios";
 
 axios.interceptors.request.use((request: any) => {
-  console.log(request.url);
+  // console.log(request.url);
   request.headers = {
     "Content-Type": "application/json",
   };
@@ -16,7 +16,7 @@ axios.interceptors.request.use((request: any) => {
 });
 
 axios.interceptors.response.use((response) => {
-  console.log(response, "res");
+  // console.log(response, "res");
   return response;
 });
 const root = ReactDOM.createRoot(

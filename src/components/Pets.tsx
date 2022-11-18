@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "services/instance";
+import Loader from "./Loader";
 import {
   AvailablePetHeading,
   MeetThemButton,
@@ -12,7 +13,6 @@ import {
   PetName,
   PetSubWrapper,
 } from "styles/components/pets";
-import Loader from "./Loader";
 
 const Pets = () => {
   interface Pet {

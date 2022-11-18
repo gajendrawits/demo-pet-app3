@@ -1,3 +1,7 @@
+import foundationLogo from "../assets/images/foundationLogo.jpeg";
+import Facebook from "assets/icons/facebook";
+import Twitter from "assets/icons/twitter";
+import Youtube from "assets/icons/youtube";
 import {
   CharityLogo,
   CrossLine,
@@ -13,10 +17,6 @@ import {
   SocialMediaWrapper,
   Span,
 } from "styles/components/footer";
-import foundationLogo from "../assets/images/foundationLogo.jpeg";
-import Facebook from "assets/icons/facebook";
-import Twitter from "assets/icons/twitter";
-import Youtube from "assets/icons/youtube";
 
 const Footer = () => {
   return (

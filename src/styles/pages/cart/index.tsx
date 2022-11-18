@@ -16,9 +16,8 @@ export const CartDetailsWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  max-height: 100px;
-  padding: 20px;
-  border-radius: 25px;
+  max-height: 5.208vw;
+  padding: 1.042vw;
 `;
 
 export const PetIdSpan = styled.span`

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "services/instance";
+import Footer from "./Footer";
+import Loader from "./Loader";
+import Navbar from "./Navbar";
 import {
   Name,
   PetImage,
@@ -8,9 +11,6 @@ import {
   PetName,
   PetSubWrapper,
 } from "styles/components/pets";
-import Footer from "./Footer";
-import Loader from "./Loader";
-import Navbar from "./Navbar";
 
 const Category = () => {
   interface Pet {

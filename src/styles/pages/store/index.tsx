@@ -8,7 +8,7 @@ export const StoreMainWrapper = styled.div`
 export const StoreSubWrapper = styled.div`
   display: flex;
   width: 100%;
-  margin: 100px 80px 0px 80px;
+  margin: 5.208vw 4.167vw 0 4.167vw;
   max-width: 89.479vw;
   border: 2px solid #6504b5;
   justify-content: space-between;
@@ -65,6 +65,12 @@ export const PaginationSubWrapper = styled.div`
   }
 `;
 
+export const SinglePetWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+`;
 export const Name = styled.div`
   padding: 1.042vw;
   font-weight: 400;

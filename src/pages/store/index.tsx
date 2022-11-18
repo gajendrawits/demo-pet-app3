@@ -1,3 +1,15 @@
+import "../../App.css";
+import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import api from "services/instance";
+import Footer from "components/Footer";
+import Loader from "components/Loader";
+import { addPet } from "../../redux/petAction";
+import AddPetModal from "pages/addPet";
+import dog from "../../assets/images/dog.png";
+import { BiMessageSquareAdd } from "react-icons/bi";
 import {
   AvailabilitySelectBox,
   LeftStoreWrapper,
@@ -13,19 +25,7 @@ import {
   StoreSubWrapper,
   AddIconWrapper,
 } from "styles/pages/store";
-import "../../App.css";
-import Navbar from "../../components/Navbar";
-import dog from "../../assets/images/dog.png";
-import { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
-import Footer from "components/Footer";
-import Loader from "components/Loader";
-import { addPet } from "../../redux/petAction";
-import { useDispatch } from "react-redux";
-import api from "services/instance";
-import { Link } from "react-router-dom";
-import { BiMessageSquareAdd } from "react-icons/bi";
-import AddPetModal from "pages/addPet";
+import Navbar from "components/Navbar";
 
 const Store = () => {
   interface Pet {
@@ -36,6 +36,8 @@ const Store = () => {
   }
 
   const [data, setData] = useState([]);
+
+  const navigate = useNavigate();
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -58,15 +60,21 @@ const Store = () => {
 
   const pageCount = Math.ceil(data.length / userPerPage);
 
+  const handleClick = (value: any) => {
+    navigate("/single-pet", { state: value });
+  };
+
   const displayUsers = data
     .slice(pageVisited, pageVisited + userPerPage)
     .map((value: Pet, index: number) => {
       return (
         <div key={index}>
           <PaginationSubWrapper key={index}>
-            <Link to={`/single-pet/${value.id}`}>
-              <PetImage src={value.photoUrls} alt="" />ß{" "}
-            </Link>
+            <PetImage
+              onClick={() => handleClick(value)}
+              src={value.photoUrls}
+              alt=""
+            />
             <Name>Hi! My name is:</Name>
             <PetName>{value.name}</PetName>
             <BuyPetButton onClick={() => dispatch(addPet(value))}>

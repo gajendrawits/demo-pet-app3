@@ -1,37 +1,18 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import {
-  Name,
-  PaginationSubWrapper,
-  PetImage,
-  PetName,
-} from "styles/pages/store";
-import api from "../../services/instance";
+import { useLocation } from "react-router-dom";
+import { Name, PetName, SinglePetWrapper } from "styles/pages/store";
 
 const SinglePet = () => {
-  const { id } = useParams();
-  console.log(id, "id");
-
-  const [post, setSingle] = useState<any>();
-  console.log(post, "post");
-
-  useEffect(() => {
-    api.get(`/pet/${id}`).then((response) => {
-      setSingle(response.data);
-    });
-  }, [id]);
-
+  const { state } = useLocation();
+  const data = state;
   return (
-    <div>
-      <PaginationSubWrapper>
-        <Name>Hi! My name is:</Name>
-        <PetName>{post.name}</PetName>
-        <PetImage src={post.photoUrls} alt="" />
-        {/* <BuyPetButton onClick={() => dispatch(addPet(value))}>
-          Buy Pet
-        </BuyPetButton> */}
-      </PaginationSubWrapper>
-    </div>
+    <SinglePetWrapper>
+      <Name>Hi! My name is:</Name>
+      <PetName>{data?.name}</PetName>
+      <Name>Status:</Name>
+      <PetName>{data?.status}</PetName>
+      <Name>Tag:</Name>
+      <PetName>{data?.tags[0]?.name}</PetName>
+    </SinglePetWrapper>
   );
 };
 

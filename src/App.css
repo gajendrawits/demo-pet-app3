@@ -4,16 +4,16 @@
 .paginationButtons {
   width: 80%;
   margin: 0 auto;
-  height: 40px;
+  height: 2.083vw;
   list-style: none;
   display: flex;
-  padding: 50px;
+  padding: 2.604vw;
   justify-content: center;
 }
 .paginationButtons a {
-  padding: 10px;
-  margin: 8px;
-  border-radius: 5px;
+  padding: 0.521vw;
+  margin: 0.417vw;
+  border-radius: 0.26vw;
   border: 1px solid #206ef6;
   color: #206ef6;
   cursor: pointer;

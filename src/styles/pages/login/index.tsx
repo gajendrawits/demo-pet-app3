@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoginMainWrappear = styled.div`
+export const LoginMainWrapper = styled.div`
   display: flex;
   align-items: center;
   height: 100vh;

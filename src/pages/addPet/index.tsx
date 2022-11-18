@@ -1,3 +1,8 @@
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { ErrorMessage } from "styles/pages/signUp";
+import api from "services/instance";
 import {
   AddPetLebel,
   Button,
@@ -5,11 +10,6 @@ import {
   MainAddPetWrapper,
   SubAddPetWrapper,
 } from "styles/pages/addPet";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import api from "services/instance";
-import { ErrorMessage } from "styles/pages/signUp";
 
 interface myProps {
   status: (setOpenModa: boolean) => void;
@@ -35,7 +35,6 @@ const AddPetModal = (props: myProps) => {
   });
 
   const onSubmit = (data: any) => {
-    console.log(data);
     api
       .post("/pet", {
         name: data.name,
@@ -44,7 +43,6 @@ const AddPetModal = (props: myProps) => {
       })
       .then((response) => {
         let i = document.getElementById("add");
-        console.log(i, "iiiii");
         if (response.status === 200) {
           if (i) i.style.backgroundColor = "#2ecc71";
         } else {
