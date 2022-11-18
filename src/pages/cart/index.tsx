@@ -4,27 +4,41 @@ import {
   Button,
   CartDetailsWrapper,
   CartMainWrapper,
-  H5,
+  CartSubWrapper,
+  Heading,
   Image,
+  PetIdSpan,
+  PetNameSpan,
+  PetStatusSpan,
 } from "styles/pages/cart";
 
 const Cart = () => {
   const selector = useSelector((state: any) => state.cartPet.totalPets);
-  console.log(selector, "ll");
   const dispatch = useDispatch();
 
   return (
     <CartMainWrapper>
-      <h1> {selector.length < 1 ? "Your cart is empty" : "Cart"}</h1>
-      {selector.map((value: any, index: number) => (
-        <CartDetailsWrapper key={index}>
-          <Image src={value.image} alt={value.title} />
-          <H5>{`Id: ${value.id}`}</H5>
-          <H5>{`Name: ${value.name}`}</H5>
-          <H5>{`Status: ${value.status}`}</H5>
-          <Button onClick={() => dispatch(removePet(value))}> Remove</Button>
-        </CartDetailsWrapper>
-      ))}
+      <h1>
+        {selector.length < 1 ? (
+          <h3 style={{ color: "red" }}>Your cart is empty</h3>
+        ) : (
+          <h3 style={{ color: "green" }}>Cart</h3>
+        )}
+      </h1>
+      <CartSubWrapper>
+        {selector.map((value: any, index: number) => (
+          <CartDetailsWrapper key={index}>
+            <Image src={value.photoUrls} alt={value.title} />
+            <Heading>Id:</Heading>
+            <PetIdSpan>{value.id}</PetIdSpan>
+            <Heading>Name:</Heading>
+            <PetNameSpan>{value.name}</PetNameSpan>
+            <Heading>Status:</Heading>
+            <PetStatusSpan>{value.status}</PetStatusSpan>
+            <Button onClick={() => dispatch(removePet(value))}> Remove</Button>
+          </CartDetailsWrapper>
+        ))}
+      </CartSubWrapper>
     </CartMainWrapper>
   );
 };

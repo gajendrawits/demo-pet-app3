@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const NavbarMainWrapper = styled.div`
   position: fixed;
+  top: 0px;
   width: 100%;
   max-width: 100vw;
   z-index: 1000;
@@ -34,6 +35,7 @@ export const ContentCombine = styled.div`
   gap: 4.167vw;
   height: 1.042vw;
   justify-content: flex-end;
+  align-items: center;
 `;
 
 export const Span = styled.span`
@@ -49,12 +51,24 @@ export const NumberWrapper = styled.span`
   top: 1.563vw;
 `;
 
+export const SettingLogoSpan = styled.span`
+  color: #00205b;
+  font-size: x-large;
+  font-weight: bold;
+  cursor: pointer;
+  :hover {
+    transform: translate(-10%, -10%);
+    transform: scale(1.6) rotate(-5deg);
+    transition: all 0.5s ease-in-out;
+  }
+`;
 export const CartWrapper = styled.span`
   color: #00205b;
   font-size: larger;
   font-weight: bold;
   :hover {
     cursor: pointer;
-    border-bottom: 1.156rem solid #00205b;
+    color: red;
+    border-bottom: 0.156rem solid red;
   }
 `;

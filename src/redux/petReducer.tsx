@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const cartReducer = (state = initialState, action: any) => {
-  console.log(action.payload, "dt");
   switch (action.type) {
     case ADD_PET:
       const find = state.totalPets?.find((item: any) =>

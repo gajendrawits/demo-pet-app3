@@ -8,7 +8,7 @@ export const StoreMainWrapper = styled.div`
 export const StoreSubWrapper = styled.div`
   display: flex;
   width: 100%;
-  margin: 100px 80px 0px 80px;
+  margin: 5.208vw 4.167vw 0 4.167vw;
   max-width: 89.479vw;
   border: 2px solid #6504b5;
   justify-content: space-between;
@@ -22,6 +22,16 @@ export const StoreLogo = styled.img`
 
 export const LeftStoreWrapper = styled.div``;
 
+export const AddIconWrapper = styled.div`
+  color: white;
+  cursor: pointer;
+  :hover {
+    color: chartreuse;
+    overflow: hidden;
+    transform: scale(1.5);
+    transition: transform 0.5s ease;
+  }
+`;
 export const RightStoreWrapper = styled.div`
   display: flex;
   gap: 0.781vw;
@@ -41,6 +51,8 @@ export const PaginationMainWrapper = styled.div`
   justify-content: space-around;
   gap: 2.604vw;
   padding: 1.563vw;
+  height: 111vw;
+  /* align-items: center; */
 `;
 
 export const PaginationSubWrapper = styled.div`
@@ -53,6 +65,12 @@ export const PaginationSubWrapper = styled.div`
   }
 `;
 
+export const SinglePetWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+`;
 export const Name = styled.div`
   padding: 1.042vw;
   font-weight: 400;

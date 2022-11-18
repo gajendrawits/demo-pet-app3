@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { IoSettingsOutline } from "react-icons/io5";
+import { SlHandbag } from "react-icons/sl";
+import LogOut from "pages/logOut";
 import {
   CartWrapper,
   ContentCombine,
@@ -6,15 +11,17 @@ import {
   MainNavbarOptionWrapper,
   NavbarMainWrapper,
   NumberWrapper,
+  SettingLogoSpan,
   Span,
   SubNavbarOptionWrapper,
   SubNavbarWrapper,
 } from "styles/components/navbar";
-import { SlHandbag } from "react-icons/sl";
-import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const navigate = useNavigate();
+
+  const [open, setOpen] = useState<boolean>(false);
+
   const selector = useSelector((state: any) => state.cartPet.totalPets);
 
   const navigateToHome = () => {
@@ -32,13 +39,13 @@ const Navbar = () => {
           />
           <SubNavbarOptionWrapper>
             <ContentCombine>
-              <Link to={"/store"}>
+              <Link style={{ textDecoration: "none" }} to={"/store"}>
                 <Span>ADOPT</Span>
               </Link>
-              <Link to={"/home/fish"}>
+              <Link style={{ textDecoration: "none" }} to={"/home/fish"}>
                 <Span>FISH</Span>
               </Link>
-              <Link to={"/home/doggie"}>
+              <Link style={{ textDecoration: "none" }} to={"/home/doggie"}>
                 <Span>DOG</Span>
               </Link>
               <Link to={"/cart"}>
@@ -47,6 +54,10 @@ const Navbar = () => {
                   <NumberWrapper>{selector.length}</NumberWrapper>
                 </CartWrapper>
               </Link>
+              <SettingLogoSpan onClick={() => setOpen(!open)}>
+                <IoSettingsOutline />
+              </SettingLogoSpan>
+              {open && <LogOut status={setOpen} />}
             </ContentCombine>
           </SubNavbarOptionWrapper>
         </MainNavbarOptionWrapper>

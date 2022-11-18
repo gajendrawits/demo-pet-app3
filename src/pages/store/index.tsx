@@ -1,3 +1,15 @@
+import "../../App.css";
+import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import api from "services/instance";
+import Footer from "components/Footer";
+import Loader from "components/Loader";
+import { addPet } from "../../redux/petAction";
+import AddPetModal from "pages/addPet";
+import dog from "../../assets/images/dog.png";
+import { BiMessageSquareAdd } from "react-icons/bi";
 import {
   AvailabilitySelectBox,
   LeftStoreWrapper,
@@ -11,17 +23,9 @@ import {
   StoreLogo,
   StoreMainWrapper,
   StoreSubWrapper,
+  AddIconWrapper,
 } from "styles/pages/store";
-import "../../App.css";
-import axios from "axios";
-import Navbar from "../../components/Navbar";
-import dog from "../../assets/images/dog.png";
-import { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
-import Footer from "components/Footer";
-import Loader from "components/Loader";
-import { addPet } from "../../redux/petAction";
-import { useDispatch } from "react-redux";
+import Navbar from "components/Navbar";
 
 const Store = () => {
   interface Pet {
@@ -33,19 +37,20 @@ const Store = () => {
 
   const [data, setData] = useState([]);
 
+  const navigate = useNavigate();
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(true);
 
-  const url =
-    "https://petstore.swagger.io/v2/pet/findByStatus?status=available";
-
   useEffect(() => {
-    axios.get(url).then((response) => {
+    api.get("/pet/findByStatus?status=available").then((response) => {
       setData(response.data);
       setLoading(false);
     });
-  }, [url]);
+  }, []);
 
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -55,13 +60,21 @@ const Store = () => {
 
   const pageCount = Math.ceil(data.length / userPerPage);
 
+  const handleClick = (value: any) => {
+    navigate("/single-pet", { state: value });
+  };
+
   const displayUsers = data
     .slice(pageVisited, pageVisited + userPerPage)
     .map((value: Pet, index: number) => {
       return (
         <div key={index}>
           <PaginationSubWrapper key={index}>
-            <PetImage src={value.photoUrls} alt="" />
+            <PetImage
+              onClick={() => handleClick(value)}
+              src={value.photoUrls}
+              alt=""
+            />
             <Name>Hi! My name is:</Name>
             <PetName>{value.name}</PetName>
             <BuyPetButton onClick={() => dispatch(addPet(value))}>
@@ -78,11 +91,9 @@ const Store = () => {
 
   const knowAvailability = (e: any) => {
     let status = e.target.value;
-    axios
-      .get(`https://petstore.swagger.io/v2/pet/findByStatus?status=${status}`)
-      .then((response) => {
-        setData(response.data);
-      });
+    api.get(`/pet/findByStatus?status=${status}`).then((response) => {
+      setData(response.data);
+    });
   };
 
   return (
@@ -94,6 +105,12 @@ const Store = () => {
             <StoreLogo src={dog} />
           </LeftStoreWrapper>
           <RightStoreWrapper>
+            Add pet
+            <AddIconWrapper>
+              <BiMessageSquareAdd
+                onClick={() => setIsModalOpen(!isModalOpen)}
+              />
+            </AddIconWrapper>
             Search for the availability
             <AvailabilitySelectBox onChange={knowAvailability}>
               <option>Select</option>
@@ -103,10 +120,10 @@ const Store = () => {
             </AvailabilitySelectBox>
           </RightStoreWrapper>
         </StoreSubWrapper>
+        {isModalOpen && <AddPetModal status={setIsModalOpen} />}
       </StoreMainWrapper>
       <PaginationMainWrapper>
-        {loading ? <Loader /> : null}
-        {displayUsers}
+        {loading ? <Loader /> : displayUsers}
       </PaginationMainWrapper>
       <ReactPaginate
         previousLabel={"Previous"}
@@ -118,6 +135,7 @@ const Store = () => {
         nextLinkClassName={"nextButtons"}
         activeClassName={"activeButtons"}
       />
+
       <Footer />
     </>
   );

@@ -1,14 +1,16 @@
 import SignUp from "pages/signUp";
+import axios from "axios";
 import * as yup from "yup";
+import { useEffect, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
-
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ErrorMessage, InputWrapper } from "styles/pages/signUp";
 import {
   LoginCredentialsWrapper,
   LoginHeading,
-  LoginMainWrappear,
+  LoginMainWrapper,
   SignUpButtonHeading,
   SignUpModalWrapper,
   SiteNameParagraph,
@@ -16,9 +18,6 @@ import {
   SubLoginWrapper,
   UserRegisterWrapper,
 } from "styles/pages/login";
-import { ErrorMessage, InputWrapper } from "styles/pages/signUp";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -48,7 +47,6 @@ const Login = () => {
   });
 
   const onSubmit = (data: any) => {
-    console.log(data);
     axios
       .post("https://sql-dev-india.thewitslab.com:3003/auth/login", {
         email: data.email,
@@ -57,13 +55,16 @@ const Login = () => {
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         let token = localStorage.getItem("token");
-        console.log(token);
         token ? navigate("/home") : navigate("/");
       });
   };
 
+  useEffect(() => {
+    if (localStorage.getItem("token")) navigate("/home");
+  });
+
   return (
-    <LoginMainWrappear>
+    <LoginMainWrapper>
       <SubLoginWrapper>
         <LoginHeading>
           Login to <SiteNameParagraph>Pet Store</SiteNameParagraph>
@@ -108,7 +109,7 @@ const Login = () => {
           {openModal && <SignUp status={setOpenModal} />}
         </SignUpModalWrapper>
       </SubLoginWrapper>
-    </LoginMainWrappear>
+    </LoginMainWrapper>
   );
 };
 

@@ -1,3 +1,5 @@
+import kiaLogo from "../assets/images/kiaLogo.webp";
+import kongLogo from "../assets/images/kongLogo.webp";
 import {
   ClientHeading,
   ClientsImage,
@@ -6,8 +8,6 @@ import {
   PartnerMainWrapper,
   PartnerSubWrapper,
 } from "styles/components/ourPartners";
-import kiaLogo from "../assets/images/kiaLogo.webp";
-import kongLogo from "../assets/images/kongLogo.webp";
 
 const OurPartners = () => {
   return (

@@ -50,6 +50,12 @@ export const Span = styled.span`
   font-weight: 800;
   font-size: 1.042rem;
   cursor: pointer;
+  :hover {
+    overflow: hidden;
+    transform: scale(1.1);
+    color: #c6c637;
+    transition: transform 0.5s ease;
+  }
 `;
 export const CharityLogo = styled.img`
   width: 100%;

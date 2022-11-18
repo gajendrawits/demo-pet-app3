@@ -5,7 +5,20 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "redux/store";
+import axios from "axios";
 
+axios.interceptors.request.use((request: any) => {
+  // console.log(request.url);
+  request.headers = {
+    "Content-Type": "application/json",
+  };
+  return request;
+});
+
+axios.interceptors.response.use((response) => {
+  // console.log(response, "res");
+  return response;
+});
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

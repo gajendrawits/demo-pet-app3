@@ -1,6 +1,7 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "services/instance";
+import Loader from "./Loader";
 import {
   AvailablePetHeading,
   MeetThemButton,
@@ -12,7 +13,6 @@ import {
   PetName,
   PetSubWrapper,
 } from "styles/components/pets";
-import Loader from "./Loader";
 
 const Pets = () => {
   interface Pet {
@@ -30,28 +30,16 @@ const Pets = () => {
 
   const newData = data.slice(0, 7);
 
-  const url =
-    "https://petstore.swagger.io/v2/pet/findByStatus?status=available";
-
   useEffect(() => {
-    axios.get(url).then((response) => {
+    api.get("/pet/findByStatus?status=available").then((response) => {
       setData(response.data);
       setLoading(false);
     });
-  }, [url]);
+  }, []);
 
   const goToStore = () => {
     navigate("/store");
   };
-
-  // const filteredData = (data: any) => {
-  //   const res = data.filter(
-  //     (val: any, index: any) =>
-  //       val.photoUrls.length >= 1 && val.photoUrls !== "string"
-  //   );
-  //   console.log(res);
-  // };
-  // filteredData(data);
 
   return (
     <PetMainWrapper>
